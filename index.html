@@ -4,6 +4,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ndimphiwe Bontsi | Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Analytics Placeholder -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-ID-HERE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR-ID-HERE');
+</script> 
   <style>
     :root {
       --primary-color: #5C4033; /* chocolate */
@@ -64,12 +72,16 @@ footer {
   </header>  <nav>
     <a href="#about">About Me</a>
     <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-  </nav>  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm a senior Java full-stack developer with 12+ years of experience delivering impactful solutions in banking, retail, and telecommunications. My goal is to use my skills to help others and contribute meaningfully to businesses and society.</p>
-  </section>  <section id="skills">
+  </nav>
+  
+  <section id="about" class="section">
+  <h2>About Me</h2>
+  <p>I am a passionate software developer using my technical skills to make a difference in life. Through my company, <strong> <a href="https://ngbontsi.github.io/nbdevelopment-site-/">NB Development </a></strong>, I help individuals and small businesses go digital with affordable, clean, and functional solutions—from websites and mobile apps to automated documents and more.</p>
+</section>
+  <section id="skills">
     <h2>Skills</h2>
     <ul>
       <li>Java (6–23), Spring Boot 3, Quarkus</li>
@@ -80,7 +92,23 @@ footer {
       <li>CI/CD, ITIL Processes</li>
       <li>Angular, HTML/CSS/JavaScript</li>
     </ul>
-  </section>  <section id="projects">
+  </section> 
+  <section id="services" class="section">
+  <h2>Services Offered</h2>
+  <ul>
+    <li><strong>Business Website Development:</strong> Clean, mobile-friendly websites for small to medium businesses.</li>
+    <li><strong>Client Forms & Invoicing:</strong> Smart forms for gathering info and generating invoices or PDFs.</li>
+    <li><strong>Flyer Design:</strong> Professional flyers using your brand style (colors, logo, message).</li>
+    <li><strong>System & App Prototypes:</strong> Task trackers, restaurant menus, and reminder tools with offline/online modes.</li>
+    <li><strong>One-on-One Consultations:</strong> Tech guidance to structure your ideas and understand your needs.</li>
+  </ul>
+  <p>
+    <a href="mailto:ngbontsi@gmail.com" class="cta">Email Me Your Idea</a> |
+    <a href="https://wa.me/27646320739" class="cta" target="_blank">WhatsApp Me</a>
+  </p>
+</section>
+  
+  <section id="projects">
     <h2>Projects</h2>
     <div class="project">
       <h3>NB Task Manager</h3>
