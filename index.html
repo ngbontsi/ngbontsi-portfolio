@@ -17,12 +17,8 @@
       --primary-color: #5C4033; /* chocolate */
       --accent-color: #FFFFFF;
       --text-color: #333;
-    }body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--accent-color);
-  color: var(--text-color);
-}
+    }
+ 
 
 header {
   background: var(--primary-color);
@@ -62,7 +58,109 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+  .project img {
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
 
+.project ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project ul li {
+  padding-left: 1rem;
+  position: relative;
+}
+
+.project ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+  body {
+  background-color: #121212;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.projects-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.projects-section h2 {
+  color: #ff9800; /* warm orange */
+  text-shadow: 0 0 8px #ff9800aa;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #ff980044;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #ff9800aa;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  color: #ffb74d;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  color: #ff5722;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a:hover {
+  text-shadow: 0 0 5px #ff5722aa;
+}
+
+/* Responsive Grid */
+@media (min-width: 600px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
   </style>
 </head>
 <body>
@@ -108,22 +206,67 @@ footer {
   </p>
 </section>
   
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>NB Task Manager</h3>
-      <p>A productivity app with task reminders and offline-first capabilities using Spring Boot and Flutter.</p>
-    </div>
-    <div class="project">
-      <h3>Forex App - RMB Private Bank</h3>
-      <p>Migrated web-based foreign exchange functionality into mobile-first platforms using Java and PostgreSQL.</p>
-    </div>
-    <div class="project">
-      <h3>Shoprite AWS Dashboard</h3>
-      <p>Led dashboard development using AWS Lambda, S3 integration, and microservices deployment.</p>
-    </div>
-    
-  </section> 
+  <section id="projects-section">
+  <h2>Projects</h2>
+    <div class="projects-grid">
+      
+  <!-- Freelance Project 1 -->
+  <div class="project-card">
+    <h3>NB Task Manager</h3>
+    <img src="logo.png" alt="Task Manager Screenshot" width="100%">
+    <p>A productivity app with task reminders and offline-first capabilities using Spring Boot and Flutter. Designed for personal use and client productivity tracking.</p>
+    <ul>
+      <li>📦 Stack: Spring Boot, Flutter, PostgreSQL, Docker</li>
+      <li>🛠️ Offline support with automated reminders</li>
+      <li>🔗 <a href="https://github.com/ngbontsi/originalTaskManager" target="_blank">GitHub Repo</a></li>
+    </ul>
+  </div>
+
+  <!-- Freelance Project 2 -->
+  <div class="project-card">
+    <h3>Smart Menu & Inventory System</h3>
+    <img src="logo1.png" alt="Menu App Screenshot" width="100%">
+    <p>Built for a restaurant to manage digital menus and track food/drink inventory with category-level configuration. Ready for reporting features.</p>
+    <ul>
+      <li>📦 Stack: Spring Boot, Flutter Web, SQLite</li>
+      <li>🍽️ Menu builder with takeaway/sit-in filters</li>
+    </ul>
+  </div>
+
+  <!-- Freelance Project 3 -->
+  <div class="project-card">
+    <h3>Business Flyer & Document Tools</h3>
+    <img src="logo2.png" alt="PDF Tools Screenshot" width="100%">
+    <p>Offline-first flyer, quote, and business card generator for small businesses. Built using HTML and JavaScript with PDF export functionality.</p>
+    <ul>
+      <li>📦 Stack: HTML, JavaScript, jsPDF</li>
+      <li>🧾 Works fully on mobile (via SPCK Editor)</li>
+    </ul>
+  </div>
+
+  <!-- Freelance Project 4 -->
+  <div class="project-card">
+    <h3>Domain & Website Support</h3>
+    <img src="logo3.png" alt="Web Support Screenshot" width="100%">
+    <p>Helped individuals and small businesses get online through simple, clean websites. Assisted with hosting, domains, and static content updates.</p>
+    <ul>
+      <li>📦 Stack: WordPress, GitHub Pages, HTML/CSS</li>
+      <li>🌐 Focused on mobile and SEO basics</li>
+    </ul>
+  </div>
+
+  <!-- Existing Projects -->
+  <div class="project-card">
+    <h3>Forex App - RMB Private Bank</h3>
+    <p>Migrated web-based foreign exchange functionality into mobile-first platforms using Java and PostgreSQL.</p>
+  </div>
+
+  <div class="project-card">
+    <h3>Shoprite AWS Dashboard</h3>
+    <p>Led dashboard development using AWS Lambda, S3 integration, and microservices deployment.</p>
+  </div>
+ <div/>
+</section>
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:ngbontsi@gmail.com">ngbontsi@gmail.com</a></p>
