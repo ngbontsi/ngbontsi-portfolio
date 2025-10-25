@@ -7,25 +7,55 @@ permissions:
   contents: write   # ✅ allows committing & pushing changes
 
 jobs:
-  unzip:
+#   unzip:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }} # ✅ uses repo token
+
+#       - name: Unzip project
+#         run: |
+#           varOcg="portfolio-decoded.zip"
+#           unzip "$varOcg" -d ./proj
+#           rm "$varOcg"
+
+#       - name: Commit unzipped files
+#         run: |
+#           git config user.name "github-actions[bot]"
+#           git config user.email "github-actions[bot]@users.noreply.github.com"
+#           git add .
+#           git commit -m "Unzipped project skeleton" || echo "No changes to commit"
+#           git push
+
+  flatten:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # ✅ uses repo token
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Unzip project
+      - name: Move project contents to root
         run: |
-          varOcg="portfolio-decoded.zip"
-          unzip "$varOcg" -d ./proj
-          rm "$varOcg"
+          # Find the inner folder (task-manager-skeleton-v2-kafka)
+          varOcg=$(find proj -mindepth 1 -maxdepth 1 -type d | head -n 1)
+          echo "Found inner folder: $varOcg"
+          
+          # Move everything up to repo root
+          mv "$varOcg"/* ./
 
-      - name: Commit unzipped files
+          # Remove old skeleton folder
+          rm -rf proj
+          echo "Flatten complete!"
+
+      - name: Commit flattened structure
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Unzipped project skeleton" || echo "No changes to commit"
+          git commit -m "Flattened project structure" || echo "No changes to commit"
           git push
+
  
