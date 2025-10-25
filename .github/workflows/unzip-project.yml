@@ -21,18 +21,18 @@ jobs:
           unzip "$varOcg" -d ./proj
           rm "$varOcg"
       
-      - name: Move project contents to root
-        run: |
-          # Find the inner folder (task-manager-skeleton-v2-kafka)
-          varOcg=$(find proj -mindepth 1 -maxdepth 1 -type d | head -n 1)
-          echo "Found inner folder: $varOcg"
+      # - name: Move project contents to root
+      #   run: |
+      #     # Find the inner folder (task-manager-skeleton-v2-kafka)
+      #     varOcg=$(find proj -mindepth 1 -maxdepth 1 -type d | head -n 1)
+      #     echo "Found inner folder: $varOcg"
           
-          # Move everything up to repo root
-          mv "$varOcg"/* ./
+      #     # Move everything up to repo root
+      #     mv "$varOcg"/* ./
 
-          # Remove old skeleton folder
-          rm -rf proj
-          echo "Flatten complete!"
+      #     # Remove old skeleton folder
+      #     rm -rf proj
+      #     echo "Flatten complete!"
 
       - name: Commit flattened structure
         run: |
