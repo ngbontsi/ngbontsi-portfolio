@@ -18,7 +18,7 @@ jobs:
       - name: Unzip project
         run: |
           varOcg="portfolio-decoded.zip"
-          unzip "$varOcg" -d ./
+          unzip "$varOcg" -d ./proj
           rm "$varOcg"
 
       - name: Commit unzipped files
